@@ -26,6 +26,15 @@ head(penguins_kg)
 
 #Summaries 
 # I cannot even begin to remember how to do this. 
+penguins |>
+  group_by(species) |>
+  summarise(
+    n = n(),
+    mean_mass = mean(body_mass_g, na.rm = TRUE),
+    meadian_mass = median(body_mass_g, na.rm = TRUE),
+    mean_flip = mean(flipper_length_mm, na.rm = TRUE),
+    .group
+  )
 
 #More Independent Review
 # Question A
@@ -58,6 +67,11 @@ ggplot(data = penguins, aes(x = species, y = body_mass_g, fill = species)
 #Question 2
 # I don't remember how to do a scatterplot, but I bet it's not that differnt 
 # from how I created this one. 
+penguins |>
+  ggplot(data = penguins, aes(x = species, y = body_mass_g, color = species))+
+  geom_point(alpha = 0.5)+
+  facet_wrap(~species)
+       
        
 # Put it Together
 # I didn't get enough information as I attempted to do this review, so I can not 
