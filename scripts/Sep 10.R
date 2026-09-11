@@ -3,9 +3,10 @@ library(tidyverse)
 
 #load in our data
 data <- read_csv("data/raw/co-est2025-alldata.csv",
-                 locale(encoding = "Latin1"),
+                 locale = locale(encoding = "Latin1"),
                  col_types = cols(.default = col_character())
                  )
+
 glimpse(data)
 names(data)
 
